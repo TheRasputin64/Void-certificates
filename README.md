@@ -5,7 +5,6 @@
     <img src="rabbit.gif" width="200" height="167" style="float: left" alt="sad rabbit contemplating automation">
     <img src="rabbit.gif" width="200" height="167" style="float: left" alt="sad rabbit contemplating automation">
     <img src="rabbit.gif" width="200" height="167" style="float: left" alt="sad rabbit contemplating automation">
-   <img src="rabbit.gif" width="200" height="167" style="float: left" alt="sad rabbit contemplating automation">
 </div>
 
 ```
