@@ -1,8 +1,8 @@
 # void-certificates
 > because writing student names manually is too social...
-<div style="display: flex; justify-content: space-between;">
-<img src="rabbit.gif" width="200" height="167" alt="sad rabbit contemplating automation">
-<img src="carrot.png" width="200" height="167" alt="carrot they'll never reach">
+<div>
+   <img src="rabbit.gif" width="40" height="40" style="float: left" alt="sad rabbit contemplating automation">
+   <img src="carrot.png" width="30" height="35" style="float: right" alt="carrot they'll never reach">
 </div>
 
 ```
