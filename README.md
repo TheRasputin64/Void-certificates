@@ -1,7 +1,7 @@
 # void-certificates
 > because writing student names manually is too social...
 <div>
-    <img src="carrot.png" width="75" height="75" style="float: right" alt="carrot they'll never reach">
+    <img src="carrot.png" width="200" height="167" style="float: right" alt="carrot they'll never reach">
    <img src="rabbit.gif" width="200" height="167" style="float: left" alt="sad rabbit contemplating automation">
 </div>
 
