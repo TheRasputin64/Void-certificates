@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="preview-panel">
+            <div class="preview-area" id="previewArea">
+                <div class="preview-container">
+                    <img id="preview" class="preview-image">
+                    <div id="textOverlay" class="text-overlay" draggable="true">Sample Name</div>
+                </div>
+                <div class="preview-controls">
+                    <button id="zoomIn" class="zoom-btn">+</button>
+                    <button id="zoomReset" class="zoom-btn">Reset</button>
+                    <button id="zoomOut" class="zoom-btn">-</button>
+                </div>
+            </div>
+            <div class="preview-tabs">
+                <button class="tab-btn active" data-tab="info">Info</button>
+                <button class="tab-btn" data-tab="preview">Output Preview</button>
+            </div>
+            <div class="preview-content">
+                <div class="tab-content active" id="info-tab">
+                    <div class="info-item">
+                        <span>File Name:</span>
+                        <span id="fileName">No file selected</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Size:</span>
+                        <span id="fileSize">0 KB</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Dimensions:</span>
+                        <span id="dimensions">0 x 0</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="preview-tab">
+                    <div class="preview-grid" id="previewGrid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-panel">
+            <div class="section">
+                <h3>Template Upload</h3>
+                <div class="file-upload" onclick="document.getElementById('template').click()">
+                    <input type="file" id="template" hidden accept=".png,.jpg,.jpeg">
+                    <span>Drop template here or click to upload</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Text Settings</h3>
+                <div class="control-group">
+                    <label>Font Family</label>
+                    <select id="fontFamily">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Space Grotesk">Space Grotesk</option>
+                        <option value="Syncopate">Syncopate</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Font Style</label>
+                    <div class="style-toggles">
+                        <button id="boldToggle" class="style-btn">B</button>
+                        <button id="italicToggle" class="style-btn">I</button>
+                        <button id="underlineToggle" class="style-btn">U</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Text Color</label>
+                    <div class="color-picker">
+                        <input type="color" id="textColor" value="#000000">
+                        <div class="color-presets">
+                            <div class="color-preset" style="background: #000000" data-color="#000000"></div>
+                            <div class="color-preset" style="background: #ffffff" data-color="#ffffff"></div>
+                            <div class="color-preset" style="background: #ff0000" data-color="#ff0000"></div>
+                            <div class="color-preset" style="background: #00ff00" data-color="#00ff00"></div>
+                            <div class="color-preset" style="background: #0000ff" data-color="#0000ff"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Text Shadow</label>
+                    <div class="shadow-controls">
+                        <label class="toggle">
+                            <input type="checkbox" id="shadowToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <input type="color" id="shadowColor" value="#000000">
+                        <input type="number" id="shadowBlur" value="2" min="0" max="20" placeholder="Blur">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Font Size</label>
+                    <div class="range-with-value">
+                        <input type="range" id="fontSize" min="12" max="72" value="18">
+                        <span id="fontSizeValue">18px</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Text Position</label>
+                    <div class="position-controls">
+                        <div>
+                            <label>X:</label>
+                            <input type="number" id="posX" value="0">
+                        </div>
+                        <div>
+                            <label>Y:</label>
+                            <input type="number" id="posY" value="0">
+                        </div>
+                    </div>
+                    <div class="position-presets">
+                        <button class="position-preset" data-position="top">Top</button>
+                        <button class="position-preset" data-position="center">Center</button>
+                        <button class="position-preset" data-position="bottom">Bottom</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Names Input</h3>
+                <textarea id="names" placeholder="Enter names (one per line)"></textarea>
+                <div class="stats">
+                    <span>Names Count: <span id="namesCount">0</span></span>
+                    <span>Est. Archive Size: <span id="archiveSize">0 KB</span></span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Output Settings</h3>
+                <div class="options-group">
+                    <label class="toggle">
+                        <input type="checkbox" id="useNumbers">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Use numbers for filenames</span>
+                </div>
+                <div class="control-group">
+                    <label>Image Quality</label>
+                    <div class="range-with-value">
+                        <input type="range" id="quality" min="1" max="100" value="80">
+                        <span id="qualityValue">80%</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="generate-btn" onclick="generateCertificates()">
+                Generate Certificates
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
