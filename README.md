@@ -1,6 +1,6 @@
 # void-certificates
 > because writing student names manually is too social...
-<img src="rabbit.gif" width="512" height="512" alt="glitched certificate representing automation">
+<img src="rabbit.gif" width="200" height="167" alt="glitched certificate representing automation">
 
 ```
 └── loneliness/
